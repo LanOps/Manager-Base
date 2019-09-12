@@ -1,4 +1,4 @@
-FROM alpine:3.7
+FROM alpine:3.8
 MAINTAINER Thornton Phillis (Th0rn0@lanops.co.uk)
 
 # ENV - Config
@@ -6,7 +6,7 @@ MAINTAINER Thornton Phillis (Th0rn0@lanops.co.uk)
 ENV UUID 1000
 ENV GUID 1000
 ENV NGINX_VERSION 1.12.2
-ENV PHP_VERSION 7.2
+ENV PHP_VERSION 7.3
 ENV SUPERVISOR_LOG_ROOT /var/log/supervisor
 ENV NGINX_DOCUMENT_ROOT /web/html
 
