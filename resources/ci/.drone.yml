@@ -45,7 +45,7 @@ steps:
 - name: build-push-image-master-latest
   image: plugins/docker
   settings:
-    repo: lanopsdev/manager-base
+    repo: th0rn0/php-nginx-base
     tags: 
     - latest
     username:
@@ -59,7 +59,7 @@ steps:
 - name: build-push-image-master-tagged
   image: plugins/docker
   settings:
-    repo: lanopsdev/manager-base
+    repo: th0rn0/php-nginx-base
     tags: 
     - ${DRONE_TAG}
     username:
@@ -131,6 +131,6 @@ trigger:
   - staging
 ---
 kind: signature
-hmac: ca512603061188a91603a0031cf6e07bea1038881a39dfa4798ef6c3d967c27c
+hmac: c49b847aad48fcf01e138abbefc3e20ea9d93cc88cd1aeb221b3d238c9bc03ee
 
 ...
