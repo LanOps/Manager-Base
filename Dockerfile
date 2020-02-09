@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM alpine:3.8 as builder
 MAINTAINER Thornton Phillis (Th0rn0@lanops.co.uk)
 
 # ENV - Config
