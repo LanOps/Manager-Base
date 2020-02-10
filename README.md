@@ -3,4 +3,4 @@
 
 docker buildx is require to build multiple archs
 
-```docker buildx build --platform linux/amd64,linux/arm/v6,linux/arm64,linux/arm/v7 --push -t th0rn0/php-nginx-base:latest .```
+```docker buildx build --platform linux/amd64,linux/arm/v7 --push -t th0rn0/php-nginx-base:latest .```
