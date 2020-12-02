@@ -1,12 +1,12 @@
-FROM alpine:3.11.6 as builder
+FROM alpine:edge as builder
 MAINTAINER Thornton Phillis (Th0rn0@lanops.co.uk)
 
 # ENV - Config
 
 ENV UUID 1000
 ENV GUID 1000
-ENV NGINX_VERSION 1.19.0
-ENV PHP_VERSION 7.3
+ENV NGINX_VERSION 1.19.5
+ENV PHP_VERSION 7.4
 ENV SUPERVISOR_LOG_ROOT /var/log/supervisor
 ENV NGINX_DOCUMENT_ROOT /web/html
 
@@ -155,7 +155,7 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
 
 # Install PHP
 
-RUN apk add --update --no-cache \
+RUN apk add --update --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community \
         php7-session>=${PHP_VERSION} \
         php7-mcrypt>=${PHP_VERSION} \
         php7-openssl>=${PHP_VERSION} \
