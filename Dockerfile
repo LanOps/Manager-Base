@@ -1,4 +1,5 @@
-FROM alpine:edge as builder
+# FROM alpine:3.12 as builder
+FROM php:8.0.2-fpm-alpine3.12 as builder
 MAINTAINER Thornton Phillis (Th0rn0@lanops.co.uk)
 
 # ENV - Config
@@ -6,7 +7,7 @@ MAINTAINER Thornton Phillis (Th0rn0@lanops.co.uk)
 ENV UUID 1000
 ENV GUID 1000
 ENV NGINX_VERSION 1.19.5
-ENV PHP_VERSION 7.4
+ENV PHP_VERSION 8.0.11-r0
 ENV SUPERVISOR_LOG_ROOT /var/log/supervisor
 ENV NGINX_DOCUMENT_ROOT /web/html
 
@@ -155,42 +156,43 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
 
 # Install PHP
 
-RUN apk add --update --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community \
-        php7-session>=${PHP_VERSION} \
-        php7-mcrypt>=${PHP_VERSION} \
-        php7-openssl>=${PHP_VERSION} \
-        php7-json>=${PHP_VERSION} \
-        php7-dom>=${PHP_VERSION} \
-        php7-zip>=${PHP_VERSION} \
-        php7-bcmath>=${PHP_VERSION} \
-        php7-gd>=${PHP_VERSION} \
-        php7-odbc>=${PHP_VERSION} \
-        php7-gettext>=${PHP_VERSION} \
-        php7-xmlreader>=${PHP_VERSION} \
-        php7-xmlwriter>=${PHP_VERSION} \
-        php7-xmlrpc>=${PHP_VERSION} \
-        php7-xml>=${PHP_VERSION} \
-        php7-simplexml>=${PHP_VERSION} \
-        php7-bz2>=${PHP_VERSION} \
-        php7-iconv>=${PHP_VERSION} \
-        php7-curl>=${PHP_VERSION} \
-        php7-ctype>=${PHP_VERSION} \
-        php7-pcntl>=${PHP_VERSION} \
-        php7-posix>=${PHP_VERSION} \
-        php7-phar>=${PHP_VERSION} \
-        php7-opcache>=${PHP_VERSION} \
-        php7-mbstring>=${PHP_VERSION} \
-        php7-fileinfo>=${PHP_VERSION} \
-        php7-tokenizer>=${PHP_VERSION} \
-        php7-opcache>=${PHP_VERSION} \
-        php7-pdo>=${PHP_VERSION} \
-        php7-mysqli>=${PHP_VERSION} \
-        php7-pdo_mysql>=${PHP_VERSION} \
-        php7-pear>=${PHP_VERSION} \
-        php7-fpm>=${PHP_VERSION} \
-        php7-mbstring>=${PHP_VERSION} \
-        php7-imagick>=${PHP_VERSION} \
-    	php7-dev>=${PHP_VERSION}
+RUN docker-php-ext-install mysqli pdo_mysql
+# RUN apk add --update --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/3.12/community \
+     #    RUN /usr/local/bin/docker-php-ext-install session \
+     #    mcrypt \
+     #    openssl \
+     #    json \
+     #    dom \
+     #    zip \
+     #    bcmath \
+     #    gd \
+     #    odbc \
+     #    gettext \
+     #    xmlreader \
+     #    xmlwriter \
+     #    xmlrpc \
+     #    xml \
+     #    simplexml \
+     #    bz2 \
+     #    iconv \
+     #    curl \
+     #    ctype \
+     #    pcntl \
+     #    posix \
+     #    phar \
+     #    opcache \
+     #    mbstring \
+     #    fileinfo \
+     #    tokenizer \
+     #    opcache \
+     #    pdo \
+     #    mysqli \
+     #    pdo_mysql \
+     #    pear \
+     #    # fpm \
+     #    mbstring \
+     #    imagick
+    	# # dev
 
 RUN rm -f /var/cache/apk/* \
     && mkdir -p /opt/utils
