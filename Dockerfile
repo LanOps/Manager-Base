@@ -23,6 +23,7 @@ RUN apk add --no-cache \
 	curl \
 	bash \
 	libc-dev \
+	icu-dev \
 	openssl-dev \
 	pcre-dev \
 	zlib-dev \
@@ -156,43 +157,7 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
 
 # Install PHP
 
-RUN docker-php-ext-install mysqli pdo_mysql
-# RUN apk add --update --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/3.12/community \
-     #    RUN /usr/local/bin/docker-php-ext-install session \
-     #    mcrypt \
-     #    openssl \
-     #    json \
-     #    dom \
-     #    zip \
-     #    bcmath \
-     #    gd \
-     #    odbc \
-     #    gettext \
-     #    xmlreader \
-     #    xmlwriter \
-     #    xmlrpc \
-     #    xml \
-     #    simplexml \
-     #    bz2 \
-     #    iconv \
-     #    curl \
-     #    ctype \
-     #    pcntl \
-     #    posix \
-     #    phar \
-     #    opcache \
-     #    mbstring \
-     #    fileinfo \
-     #    tokenizer \
-     #    opcache \
-     #    pdo \
-     #    mysqli \
-     #    pdo_mysql \
-     #    pear \
-     #    # fpm \
-     #    mbstring \
-     #    imagick
-    	# # dev
+RUN docker-php-ext-install mysqli pdo_mysql gd bcmath intl
 
 RUN rm -f /var/cache/apk/* \
     && mkdir -p /opt/utils
