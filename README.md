@@ -1,5 +1,7 @@
 # Base image with PHP & Nginx
 
+- PHP7 - v1
+- PHP8 - v2
 
 docker buildx is require to build multiple archs
 
