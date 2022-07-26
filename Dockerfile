@@ -1,13 +1,13 @@
 # FROM alpine:3.12 as builder
-FROM php:8.0.2-fpm-alpine3.12 as builder
+FROM php:8.1.8-fpm-alpine3.16 as builder
 MAINTAINER Thornton Phillis (Th0rn0@lanops.co.uk)
 
 # ENV - Config
 
 ENV UUID 1000
 ENV GUID 1000
-ENV NGINX_VERSION 1.19.5
-ENV PHP_VERSION 8.0.11-r0
+ENV NGINX_VERSION 1.23.1
+ENV PHP_VERSION 8.1.8
 ENV SUPERVISOR_LOG_ROOT /var/log/supervisor
 ENV NGINX_DOCUMENT_ROOT /web/html
 
