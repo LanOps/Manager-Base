@@ -157,7 +157,8 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
 
 # Install PHP
 
-RUN docker-php-ext-install mysqli pdo_mysql gd bcmath intl
+RUN docker-php-ext-configure gd --with-freetype --with-webp --with-jpeg && \
+	docker-php-ext-install mysqli pdo_mysql gd bcmath intl
 
 RUN rm -f /var/cache/apk/* \
     && mkdir -p /opt/utils
