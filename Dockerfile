@@ -1,6 +1,6 @@
 # FROM alpine:3.12 as builder
 FROM php:8.1.8-fpm-alpine3.16 as builder
-MAINTAINER Thornton Phillis (Th0rn0@lanops.co.uk)
+LABEL org.opencontainers.image.authors="Thornton Phillis (Th0rn0@lanops.co.uk), Alexader Volz (Alexander@volzit.de)"
 
 # ENV - Config
 
