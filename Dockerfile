@@ -32,8 +32,11 @@ RUN apk add --no-cache \
 	libxslt-dev \
 	gd-dev \
 	imagemagick \
+	imagemagick-dev \
+	libgomp \
 	geoip-dev \
-	coreutils
+	coreutils \
+	autoconf
 
 RUN apk add --no-cache supervisor \
 	&& mkdir -p $SUPERVISOR_LOG_ROOT
@@ -156,9 +159,11 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
 	&& ln -sf /dev/stderr /var/log/nginx/error.log
 
 # Install PHP
-
 RUN docker-php-ext-configure gd --with-freetype --with-webp --with-jpeg && \
 	docker-php-ext-install mysqli pdo_mysql gd bcmath intl
+RUN pecl install imagick
+RUN docker-php-ext-enable imagick
+
 
 RUN rm -f /var/cache/apk/* \
     && mkdir -p /opt/utils
