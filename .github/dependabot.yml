@@ -1,0 +1,17 @@
+version: 2
+
+updates:
+
+ # Enable version updates for Docker
+  - package-ecosystem: "docker"
+    target-branch: "php8.1"
+    directory: "/"
+    schedule:
+      interval: "daily"
+
+  # Enable version updates for GitHub Actions
+  - package-ecosystem: "github-actions"
+    target-branch: "php8.1"
+    directory: "/"
+    schedule:
+      interval: "daily"
