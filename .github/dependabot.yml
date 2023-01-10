@@ -9,9 +9,10 @@ updates:
     schedule:
       interval: "daily"
     ignore:
-      - dependency-name: "*fpm-alpine*"
-        # For Express, ignore all updates for version 4 and 5
-        versions: ["8.2.x-fpm-alpine3.16"]
+      - dependency-name: "*"
+        update-types: [ "version-update:semver-major" ]
+      - dependency-name: "*"
+        update-types: [ "version-update:semver-minor" ]
 
   # Enable version updates for GitHub Actions
   - package-ecosystem: "github-actions"
