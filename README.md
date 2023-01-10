@@ -3,6 +3,7 @@
 - PHP7 - v1
 - PHP8 - v2
 - PHP8.1 - v3
+- PHP8.2 - v4
 
 docker buildx is require to build multiple archs
 
