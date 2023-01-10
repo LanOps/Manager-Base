@@ -8,6 +8,10 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    ignore:
+      - dependency-name: "*fpm-alpine*"
+        # For Express, ignore all updates for version 4 and 5
+        versions: ["8.2.x-fpm-alpine3.16"]
 
   # Enable version updates for GitHub Actions
   - package-ecosystem: "github-actions"
