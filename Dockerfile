@@ -1,5 +1,5 @@
-# FROM alpine:3.12 as builder
-FROM php:8.1.19-fpm-alpine3.16 as builder
+# FROM alpine:3.18 as builder
+FROM php:8.1.20-fpm-alpine3.18 as builder
 LABEL org.opencontainers.image.authors="Thornton Phillis (Th0rn0@lanops.co.uk), Alexader Volz (Alexander@volzit.de)"
 
 # ENV - Config
